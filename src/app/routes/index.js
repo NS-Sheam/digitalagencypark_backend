@@ -3,6 +3,7 @@ import { sliderRouter } from "../modules/slider/slider.route.js";
 import { cardRouter } from "../modules/cards/card.route.js";
 import { stepsRouter } from "../modules/steps/steps.route.js";
 import { serviceRouter } from "../modules/ITservices/ITservice.route.js";
+import { FAQRouter } from "../modules/FAQ/FAQ.route.js";
 
 
 const router = Router();
@@ -23,6 +24,10 @@ const moduleRoutes = [
   {
     path: "/service",
     route: serviceRouter,
+  },
+  {
+    path: "/FAQ",
+    route: FAQRouter,
   },
 ];
 
