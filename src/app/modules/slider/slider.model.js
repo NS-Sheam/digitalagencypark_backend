@@ -4,16 +4,16 @@ import { Schema, model } from "mongoose";
 const sliderSchema = new Schema({
   image: {
     type: String,
-    required: true
+    required: true,
   },
   heading: {
     type: String,
-    required: true
+    required: true,
   },
   paragraph: {
     type: String,
-    required: true
-  }
+    required: true,
+  },
 });
 
 export const Slider = model('Slider', sliderSchema);
