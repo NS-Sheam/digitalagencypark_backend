@@ -3,8 +3,6 @@ import { sliderService } from "./slider.service.js";
 const createSlider = async (req, res) => {
   try {
     const { slider: sliderData } = req.body;
-    // const { file } = req;
-    // console.log(req.body);
     const result = await sliderService.createSliderInDB(req.file, sliderData);
     res.status(200).json({
       success: true,

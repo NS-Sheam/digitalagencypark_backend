@@ -1,7 +1,7 @@
 import { Schema, model } from "mongoose";
 
 
-const cardSchema = new Schema({
+const stepsSchema = new Schema({
   image:{
     type:String,
     required:true
@@ -16,5 +16,5 @@ const cardSchema = new Schema({
   }
 });
 
-export const Card = model('Card', cardSchema);
+export const Steps = model('Steps', stepsSchema);
 

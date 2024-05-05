@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { sliderRouter } from "../modules/slider/slider.route.js";
 import { cardRouter } from "../modules/cards/card.route.js";
+import { stepsRouter } from "../modules/steps/steps.route.js";
 
 
 const router = Router();
@@ -13,6 +14,10 @@ const moduleRoutes = [
   {
     path: "/card",
     route: cardRouter,
+  },
+  {
+    path: "/step",
+    route: stepsRouter,
   },
 ];
 

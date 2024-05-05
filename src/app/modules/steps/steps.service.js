@@ -1,22 +1,22 @@
 
 import { sendImageToCloudinary } from "../../utils/sendImageToCloudinary.js";
-import { Card } from "./card.model.js";
+import { Steps } from "./steps.model.js";
 
-const createCardInDB = async (file,payload) => {
+const createStepInDB = async (file,payload) => {
  try {
    const imageName = `${file.size}${file?.originalname}`;
    const path = file?.path;
 
    // Send image to Cloudinary and get the secure URL
    const { secure_url } = await sendImageToCloudinary(imageName, path);
-   const cardData = {};
+   const stepData = {};
    // Add the image URL to sliderData
-   cardData.image = secure_url;
-   cardData.heading = payload.heading;
-   cardData.paragraph = payload.paragraph;
+   stepData.image = secure_url;
+   stepData.heading = payload.heading;
+   stepData.paragraph = payload.paragraph;
 
    // Create slider with updated sliderData
-   const result = await Card.create(cardData);
+   const result = await Steps.create(stepData);
 
    return result;
  } catch (err) {
@@ -24,12 +24,12 @@ const createCardInDB = async (file,payload) => {
  }
 };
 
-const getAllCardFromDB = async () => {
+const getAllStepsFromDB = async () => {
   const result = await Card.find();
   return result;
 };
 
-export const cardService = {
-  createCardInDB,
-  getAllCardFromDB,
+export const stepsService = {
+  createStepInDB,
+  getAllStepsFromDB,
 };

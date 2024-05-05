@@ -1,5 +1,5 @@
 import express from "express"
-import { cardController } from "./card.controller.js";
+import { stepsController } from "./steps.controller.js";
 import { upload } from "../../utils/sendImageToCloudinary.js";
 
 
@@ -7,16 +7,16 @@ import { upload } from "../../utils/sendImageToCloudinary.js";
 const router = express.Router()
 
 router.post(
-  "/create-card",
+  "/create-step",
   upload.single("file"),
   (req, res, next) => {
     console.log(req.body);
     req.body = JSON.parse(req.body.data);
     next();
   },
-  cardController.createCard
+  stepsController.createStep
 );
 
-router.get('/cards', cardController.getAllCards)
+router.get('/steps', stepsController.getAllSteps)
 
-export const cardRouter = router;
+export const stepsRouter = router;
