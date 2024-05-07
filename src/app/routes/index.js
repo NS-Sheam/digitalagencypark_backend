@@ -1,11 +1,12 @@
-import { Router } from "express";
+import express from "express";
 import { sliderRouter } from "../modules/slider/slider.route.js";
 import { cardRouter } from "../modules/cards/card.route.js";
 import { stepsRouter } from "../modules/steps/steps.route.js";
 import { serviceRouter } from "../modules/ITservices/ITservice.route.js";
+import { AuthRoutes } from "../modules/Auth/auth.routes.js";
+import { UserRoutes } from "../modules/User/user.routes.js";
 
-
-const router = Router();
+const router = express.Router();
 
 const moduleRoutes = [
   {
@@ -23,6 +24,14 @@ const moduleRoutes = [
   {
     path: "/service",
     route: serviceRouter,
+  },
+  {
+    path: "/auth",
+    route: AuthRoutes,
+  },
+  {
+    path: "/user",
+    route: UserRoutes,
   },
 ];
 

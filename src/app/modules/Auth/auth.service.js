@@ -1,10 +1,8 @@
-import config from "../../../config";
-import { User } from "../user/user.model";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
+import config from "../../config/index.js";
+import { User } from "../user/user.model.js";
 const login = async (payload) => {
-  console.log("payload", payload);
-
   const { email, password } = payload;
   const isUserExist = await User.findOne({ email });
   if (!isUserExist) {
@@ -21,7 +19,7 @@ const login = async (payload) => {
     role: isUserExist.role,
   };
 
-  const accessToken = jwt.sign(jwtPayload, config.jwt_secret, config.jwt_expires_in);
+  const accessToken = jwt.sign(jwtPayload, config.jwt_access_secret, config.jwt_access_expires_in);
 
   return { accessToken };
 };
