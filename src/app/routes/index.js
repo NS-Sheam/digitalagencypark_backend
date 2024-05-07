@@ -1,17 +1,31 @@
-import express from "express";
-// import { AuthRoutes } from "../modules/Auth/auth.routes.js";
+import { Router } from "express";
+import { sliderRouter } from "../modules/slider/slider.route.js";
+import { cardRouter } from "../modules/cards/card.route.js";
+import { stepsRouter } from "../modules/steps/steps.route.js";
+import { serviceRouter } from "../modules/ITservices/ITservice.route.js";
 
-const router = express.Router();
+
+const router = Router();
 
 const moduleRoutes = [
   {
-    path: "/auth",
-    route: "AuthRoutes",
+    path: "/slider",
+    route: sliderRouter,
+  },
+  {
+    path: "/card",
+    route: cardRouter,
+  },
+  {
+    path: "/step",
+    route: stepsRouter,
+  },
+  {
+    path: "/service",
+    route: serviceRouter,
   },
 ];
 
-moduleRoutes.forEach((routes) => {
-  router.use(routes.path, routes.route);
-});
+moduleRoutes.forEach((route) => router.use(route.path, route.route));
 
 export default router;

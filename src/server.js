@@ -1,8 +1,6 @@
-import express from "express";
-import cors from "cors";
 import mongoose from "mongoose";
-import config from "./config/index.js";
 import app from "./app.js";
+import config from "./config/index.js";
 
 async function main() {
   console.log("Connecting to MongoDB");

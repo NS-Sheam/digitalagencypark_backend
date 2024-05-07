@@ -1,8 +1,8 @@
 //app.ts
 import express from "express";
+
 import cors from "cors";
 import router from "./app/routes/index.js";
-// import router from "./app/routes";
 
 const app = express();
 app.use(cors());
