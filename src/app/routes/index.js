@@ -4,7 +4,7 @@ import { cardRouter } from "../modules/cards/card.route.js";
 import { stepsRouter } from "../modules/steps/steps.route.js";
 import { serviceRouter } from "../modules/ITservices/ITservice.route.js";
 import { AuthRoutes } from "../modules/Auth/auth.routes.js";
-import { UserRoutes } from "../modules/User/user.routes.js";
+import { UserRoutes } from "../modules/user/user.routes.js";
 
 const router = express.Router();
 

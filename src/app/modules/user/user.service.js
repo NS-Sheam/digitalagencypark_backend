@@ -1,22 +1,22 @@
 import mongoose from "mongoose";
 import { Admin } from "../Admin/admin.model.js";
 import { User } from "./user.model.js";
+import config from "../../config/index.js";
+import bcrypt from "bcrypt";
 
 const createAdmin = async (payload) => {
-  const { password, ...remaining } = payload;
   const userRole = "admin";
   const session = await mongoose.startSession();
-
+  const hashedPassword = await bcrypt.hash(payload.password, Number(config.bcrypt_salt_rounds));
   try {
     await session.startTransaction();
 
     const newUser = await User.create(
       [
         {
-          password,
-          userName: remaining,
-          userName,
-          email: remaining.email,
+          password: hashedPassword,
+          userName: payload.admin.userName,
+          email: payload.admin.email,
           role: userRole,
         },
       ],
@@ -28,7 +28,7 @@ const createAdmin = async (payload) => {
     const admin = await Admin.create(
       [
         {
-          ...remaining,
+          ...payload.admin,
           user: newUser._id,
         },
       ],
