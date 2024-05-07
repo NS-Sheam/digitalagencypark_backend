@@ -1,12 +1,9 @@
-import express from "express"
-import { upload } from "../../utils/sendImageToCloudinary.js";
+import express from "express";
 import { FAQController } from "./FAQ.controller.js";
 
+const router = express.Router();
 
-
-const router = express.Router()
-
-router.post( "/create-FAQ", FAQController.createFAQ);
+router.post("/create-faq", FAQController.createFAQ);
 
 router.get("/allFAQ", FAQController.getAllFAQ);
 
